@@ -1,0 +1,28 @@
+<%= render "application/card", header: "Projects" do %>
+  <p style="color: green"><%= notice %></p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Status</th>
+      <th scope="col">Created by</th>
+      <th scope="col">Created at</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projects.each do |project| %>
+        <tr>
+          <td><%= link_to project.id, project_path(project) %></td>
+          <td><%= link_to project.title, project_path(project) %></td>
+          <td><%#= project.status.humanize %></td>
+          <td><%= project.first_name %></td>
+          <td><%= l project.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to "New project", new_project_path, class: "btn btn-primary" %>
+<% end %>

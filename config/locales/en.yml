@@ -34,6 +34,22 @@ en:
     formats:
       default: "%d/%m/%Y %H:%M:%S"
 
+  comments:
+    create:
+      success: "Comment was successfully created."
+    update:
+      success: "Comment was successfully updated."
+    destroy:
+      success: "Comment was successfully destroyed."
+
+  projects:
+    create:
+      success: "Project was successfully created."
+    update:
+      success: "Project was successfully updated."
+    destroy:
+      success: "Project was successfully destroyed."
+
   users:
     create:
       success: "User was successfully created."

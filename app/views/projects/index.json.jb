@@ -1,0 +1,16 @@
+# frozen_string_literal: true
+
+@projects.map do |project|
+  {
+    id: project.id,
+    created_by: project.created_by,
+    title: project.title,
+    description: project.description,
+    num_comments: project.num_comments,
+    in_progress_at: project.in_progress_at,
+    in_review_at: project.in_review_at,
+    completed_at: project.completed_at,
+    deleted_at: project.deleted_at,
+    url: project_url(project, format: :json)
+  }
+end

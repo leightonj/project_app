@@ -1,0 +1,9 @@
+<%= render "application/card", header: "New project" do %>
+  <%= render "form", project: @project %>
+
+  <br>
+
+  <div>
+    <%= link_to "Back to projects", projects_path, class: "btn btn-primary" %>
+  </div>
+<% end %>
