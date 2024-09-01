@@ -76,3 +76,5 @@ group :development, :test do
   gem "rubocop-rspec", require: false
   gem "rubocop-rspec_rails", require: false
 end
+
+gem "simple_form", "~> 5.3"
