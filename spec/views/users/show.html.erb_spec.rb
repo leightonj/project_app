@@ -1,11 +1,13 @@
-require 'rails_helper'
+# frozen_string_literal: true
 
-RSpec.describe "users/show", type: :view do
-  before(:each) do
+require "rails_helper"
+
+RSpec.describe "users/show" do
+  before do
     assign(:user, User.create!(
-      first_name: "First Name",
-      last_name: "Last Name"
-    ))
+                    first_name: "First Name",
+                    last_name: "Last Name"
+                  ))
   end
 
   it "renders attributes in <p>" do
