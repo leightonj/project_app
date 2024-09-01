@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[show edit update destroy]
+  before_action :set_project, only: %i[show edit update destroy event]
 
   # GET /projects
   def index
@@ -44,6 +44,12 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy!
     redirect_to projects_url, notice: t(".success"), status: :see_other
+  end
+
+  def event
+    event = @project.aasm.events.find { |evt| evt == params["event"].to_sym }
+    @project.send("#{event}!")
+    redirect_back(fallback_location: project_path(@project))
   end
 
   private

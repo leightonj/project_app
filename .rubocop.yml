@@ -40,3 +40,6 @@ Style/Documentation:
 Style/StringLiterals:
   Enabled: true
   EnforcedStyle: double_quotes
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false

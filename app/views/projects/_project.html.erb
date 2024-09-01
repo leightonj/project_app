@@ -1,17 +1,27 @@
 <div id="<%= dom_id project %>">
   <p>
-    <strong>Created by:</strong>
-    <%= project.created_by %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= project.title %>
-  </p>
-
-  <p>
     <strong>Description:</strong>
     <%= project.description %>
+  </p>
+
+  <p>
+    <strong>Status:</strong>
+    <% #= turbo_frame_tag(id="device_status") do %>
+      <%= project.status.humanize %>
+      <% project.aasm.events.each do |event| %>
+        | <%= link_to event.to_s.humanize, event_project_path(project, event:) %>
+      <% end %>
+    <% #end %>
+  </p>
+
+  <p>
+    <strong>Created by:</strong>
+    <%= project.first_name %>
+  </p>
+
+  <p>
+    <strong>Created at:</strong>
+    <%= l project.created_at %>
   </p>
 
   <p>
@@ -19,24 +29,24 @@
     <%= project.num_comments %>
   </p>
 
-  <p>
-    <strong>In progress at:</strong>
-    <%= project.in_progress_at %>
-  </p>
+  <% if project.in_progress_at %>
+    <p>
+      <strong>In progress at:</strong>
+      <%= l project.in_progress_at %>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>In review at:</strong>
-    <%= project.in_review_at %>
-  </p>
+  <% if project.in_review_at %>
+    <p>
+      <strong>In review at:</strong>
+      <%= l project.in_review_at %>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Completed at:</strong>
-    <%= project.completed_at %>
-  </p>
-
-  <p>
-    <strong>Deleted at:</strong>
-    <%= project.deleted_at %>
-  </p>
-
+  <% if project.completed_at %>
+    <p>
+      <strong>Completed at:</strong>
+      <%= l project.completed_at %>
+    </p>
+  <% end %>
 </div>
