@@ -72,6 +72,7 @@ gem "devise"
 gem "faker"
 gem "faraday"
 gem "jb"
+gem "pagy", "~> 9.0" # omit patch digit
 gem "simple_form", "~> 5.3"
 gem "timecop"
 gem "view_component"
