@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_01_223209) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_01_224135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.integer "created_by"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_comments_on_project_id"
+  end
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
@@ -33,7 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_223209) do
     t.integer "created_by"
     t.string "title"
     t.text "description"
-    t.integer "num_comments", default: 0
+    t.integer "comments_count", default: 0
     t.datetime "in_progress_at"
     t.datetime "in_review_at"
     t.datetime "completed_at"
@@ -58,4 +67,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_223209) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "projects"
 end

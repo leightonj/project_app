@@ -6,7 +6,7 @@
     created_by: project.created_by,
     title: project.title,
     description: project.description,
-    num_comments: project.num_comments,
+    comments_count: project.comments_count,
     in_progress_at: project.in_progress_at,
     in_review_at: project.in_review_at,
     completed_at: project.completed_at,

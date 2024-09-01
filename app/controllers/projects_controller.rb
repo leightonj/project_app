@@ -9,7 +9,9 @@ class ProjectsController < ApplicationController
   end
 
   # GET /projects/1
-  def show; end
+  def show
+    @comments = @project.comments.details.order(created_at: :desc, id: :desc)
+  end
 
   # GET /projects/new
   def new
@@ -61,7 +63,6 @@ class ProjectsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def project_params
-    params.require(:project).permit(:created_by, :title, :description, :num_comments, :in_progress_at, :in_review_at, :completed_at,
-                                    :deleted_at)
+    params.require(:project).permit(:title, :description)
   end
 end

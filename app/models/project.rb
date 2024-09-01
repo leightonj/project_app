@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   include ProjectState
 
   belongs_to :creator, class_name: "User", foreign_key: :created_by, inverse_of: :projects
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :description, presence: true

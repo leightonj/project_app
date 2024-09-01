@@ -7,4 +7,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, inverse_of: :creator, dependent: :destroy
+  has_many :comments, inverse_of: :creator, dependent: :destroy
 end
