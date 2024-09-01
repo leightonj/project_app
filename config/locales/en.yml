@@ -29,3 +29,15 @@
 
 en:
   hello: "Hello world"
+
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M:%S"
+
+  users:
+    create:
+      success: "User was successfully created."
+    update:
+      success: "User was successfully updated."
+    destroy:
+      success: "User was successfully destroyed."
