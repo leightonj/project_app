@@ -1,6 +1,20 @@
 <%= render "application/card", header: "Comments" do %>
   <% unless @comments.exists? %><p>No project comments yet</p><% end %>
 
+  <%= simple_form_for [@project, @comment] do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+    <div class="form-inputs">
+      <%= f.input :text, label: "Comment" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <hr>
+
   <% @comments.each do |comment| %>
     <div><%= comment.first_name %> (<%= l comment.created_at %>): <%= comment.text %></div>
     <hr>

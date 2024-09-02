@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1
   def show
+    @comment = @project.comments.new
     @pagy, @comments = pagy(@project.comments.details.order(created_at: :desc, id: :desc))
   end
 

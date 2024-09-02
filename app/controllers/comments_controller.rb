@@ -21,12 +21,13 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
-    @comment = Comment.new(comment_params)
+    @project = Project.find(params[:project_id])
+    @comment = @project.comments.new(comment_params.merge(creator: current_user))
 
     if @comment.save
-      redirect_to @comment, notice: t(".success")
+      redirect_to @project, notice: t(".success")
     else
-      render :new, status: :unprocessable_entity
+      redirect_to @project, notice: t(".fail")
     end
   end
 
@@ -54,6 +55,6 @@ class CommentsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def comment_params
-    params.require(:comment).permit(:project_id, :created_by, :text)
+    params.require(:comment).permit(:text)
   end
 end

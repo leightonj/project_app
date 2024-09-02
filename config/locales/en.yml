@@ -36,6 +36,7 @@ en:
 
   comments:
     create:
+      fail: "Comment failed to be created."
       success: "Comment was successfully created."
     update:
       success: "Comment was successfully updated."

@@ -14,7 +14,3 @@ Use Ruby on Rails to build a project conversation history. A user should be able
 * setup db: rails db:migrate
 
 * run tests: rspec
-
-TODO
-log comment on status change
-Leave a comments

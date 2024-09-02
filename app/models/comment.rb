@@ -14,5 +14,7 @@ class Comment < ApplicationRecord
 
   scope :details, -> { select("comments.*, users.first_name").joins(:creator) }
 
+  validates :text, presence: true
+
   normalizes :text, with: ->(attribute) { attribute.strip }
 end
