@@ -1,5 +1,18 @@
 # frozen_string_literal: true
 
+###
+# FIELDS
+# title [string]
+# description [text]
+# created_by [integer] FK
+# comments_count [integer]
+# in_progress_at [datetime]
+# in_review_at [datetime]
+# completed_at [datetime]
+# deleted_at [datetime]
+# created_at [datetime]
+# updated_at [datetime]
+###
 class Project < ApplicationRecord
   include AASM
   include ProjectState
@@ -11,4 +24,6 @@ class Project < ApplicationRecord
   validates :description, presence: true
 
   scope :details, -> { select("projects.*, users.first_name").joins(:creator) }
+
+  normalizes :title, :description, with: -> attribute { attribute.strip }
 end
