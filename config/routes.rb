@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :projects do
+    resources :comments
     member do
       get "event/:event" => "projects#event", as: :event
     end

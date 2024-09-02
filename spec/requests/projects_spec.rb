@@ -32,6 +32,8 @@ RSpec.describe "/projects" do
     }
   end
 
+  before { sign_in(create(:user)) }
+
   describe "GET /index" do
     it "renders a successful response" do
       create_list(:project, 10)
