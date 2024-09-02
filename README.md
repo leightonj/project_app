@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Use Ruby on Rails to build a project conversation history. A user should be able to:
 
-Things you may want to cover:
+* leave a comment
+* change the status of the project
 
-* Ruby version
 
-* System dependencies
+* ruby "3.3.4"
 
 * Configuration
 
-* Database creation
+* rails db:create
 
-* Database initialization
+* rails db:migrate
 
-* How to run the test suite
+* rspec
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+TODO
+strip input
+Leave a comments

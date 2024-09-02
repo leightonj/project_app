@@ -15,11 +15,4 @@
   </div>
 <% end %>
 
-<%= render "application/card", header: "Comments" do %>
-  <% @comments.each do |comment| %>
-    <p><%= comment.first_name %> (<%= l comment.created_at %>)</p>
-    <p><%= comment.text %></p>
-    <hr>
-  <% end %>
-  <%== pagy_bootstrap_nav(@pagy) %>
-<% end %>
+<%= render "comments" %>
