@@ -51,6 +51,7 @@ class ProjectsController < ApplicationController
   def event
     event = @project.aasm.events.find { |evt| evt == params["event"].to_sym }
     @project.send("#{event}!")
+    @project.comments.create!(text: "Project changed to #{@project.status.humanize}", creator: current_user)
     redirect_back(fallback_location: project_path(@project))
   end
 

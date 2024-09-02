@@ -143,4 +143,14 @@ RSpec.describe "/projects" do
       expect(response).to redirect_to(projects_url)
     end
   end
+
+  describe "GET /event" do
+    it "adds updates status and adds a comment to the project" do
+      project = create(:project)
+      get event_project_path(project, event: "start")
+      project.reload
+      expect(project.in_progress?).to be(true)
+      expect(project.comments.last.text).to eq("Project changed to In progress")
+    end
+  end
 end

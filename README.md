@@ -2,20 +2,19 @@
 
 Use Ruby on Rails to build a project conversation history. A user should be able to:
 
-* leave a comment
-* change the status of the project
+1. leave a comment
+2. change the status of the project
 
+***
 
 * ruby "3.3.4"
 
-* Configuration
+* create db: rails db:create
 
-* rails db:create
+* setup db: rails db:migrate
 
-* rails db:migrate
-
-* rspec
+* run tests: rspec
 
 TODO
-strip input
+log comment on status change
 Leave a comments

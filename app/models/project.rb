@@ -25,5 +25,5 @@ class Project < ApplicationRecord
 
   scope :details, -> { select("projects.*, users.first_name").joins(:creator) }
 
-  normalizes :title, :description, with: -> attribute { attribute.strip }
+  normalizes :title, :description, with: ->(attribute) { attribute.strip }
 end

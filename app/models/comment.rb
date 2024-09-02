@@ -14,5 +14,5 @@ class Comment < ApplicationRecord
 
   scope :details, -> { select("comments.*, users.first_name").joins(:creator) }
 
-  normalizes :text, with: -> attribute { attribute.strip }
+  normalizes :text, with: ->(attribute) { attribute.strip }
 end

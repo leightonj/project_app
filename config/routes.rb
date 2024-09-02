@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :projects do
-    resources :comments
-    member do
-      get "event/:event" => "projects#event", as: :event
-    end
+    resources :comments, only: %i[new create edit update]
+
+    get "event/:event" => "projects#event", as: :event, on: :member
   end
 
   # resources :users
