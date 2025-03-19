@@ -67,6 +67,7 @@ end
 
 gem "aasm"
 gem "cancancan"
+# gem "csv"
 gem "delayed_job_active_record"
 gem "devise"
 gem "faker"
@@ -74,6 +75,7 @@ gem "faraday"
 gem "jb"
 gem "pagy", "~> 9.0" # omit patch digit
 gem "simple_form", "~> 5.3"
+# gem "smarter_csv"
 gem "timecop"
 gem "view_component"
 gem "whenever", require: false
